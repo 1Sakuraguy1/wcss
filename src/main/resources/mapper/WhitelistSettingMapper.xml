@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatisplus.mapper.WhitelistSettingMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.mybatisplus.model.domain.WhitelistSetting">
+        <id column="id" property="id" />
+        <result column="sn" property="sn" />
+        <result column="name" property="name" />
+        <result column="role_id" property="roleId" />
+        <result column="is_enabled" property="isEnabled" />
+        <result column="is_deleted" property="isDeleted" />
+        <result column="gmt_created" property="gmtCreated" />
+        <result column="gmt_modified" property="gmtModified" />
+        <result column="password" property="password" />
+    </resultMap>
+
+</mapper>

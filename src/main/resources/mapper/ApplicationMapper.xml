@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatisplus.mapper.ApplicationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.mybatisplus.model.domain.Application">
+        <id column="id" property="id" />
+        <result column="batch_id" property="batchId" />
+        <result column="sku_id" property="skuId" />
+        <result column="product_id" property="productId" />
+        <result column="sn" property="sn" />
+        <result column="NAME" property="name" />
+        <result column="gender" property="gender" />
+        <result column="apply_date" property="applyDate" />
+        <result column="college_sn" property="collegeSn" />
+        <result column="college_name" property="collegeName" />
+        <result column="major_sn" property="majorSn" />
+        <result column="major_name" property="majorName" />
+        <result column="class_sn" property="classSn" />
+        <result column="class_name" property="className" />
+        <result column="difficulty_level" property="difficultyLevel" />
+        <result column="application_reason" property="applicationReason" />
+        <result column="audit_comment" property="auditComment" />
+        <result column="current_node_code" property="currentNodeCode" />
+        <result column="STATUS" property="status" />
+        <result column="gmt_created" property="gmtCreated" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+
+</mapper>

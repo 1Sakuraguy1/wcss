@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatisplus.mapper.BatchSettingMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.mybatisplus.model.domain.BatchSetting">
+        <id column="id" property="id" />
+        <result column="NAME" property="name" />
+        <result column="application_start_date" property="applicationStartDate" />
+        <result column="application_end_date" property="applicationEndDate" />
+        <result column="register_start_date" property="registerStartDate" />
+        <result column="register_end_date" property="registerEndDate" />
+        <result column="difficulty_level" property="difficultyLevel" />
+        <result column="is_deleted" property="isDeleted" />
+        <result column="active" property="active" />
+        <result column="gmt_created" property="gmtCreated" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+
+</mapper>
