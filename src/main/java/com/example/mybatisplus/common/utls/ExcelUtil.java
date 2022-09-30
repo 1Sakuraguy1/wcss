@@ -388,7 +388,7 @@ public class ExcelUtil {
         sheet.setDefaultColumnStyle(6, textStyle);
 
         //设置下拉框
-         DataValidationHelper helper = sheet.getDataValidationHelper();
+        DataValidationHelper helper = sheet.getDataValidationHelper();
 
         //生成表头样式
         HSSFCellStyle headStyle = hwb.createCellStyle();
@@ -498,17 +498,13 @@ public class ExcelUtil {
 
         cell = row.createCell((short) 2);
         cell.setCellValue("角色");
-        String[] strs = {"学生","辅导员","学院用户","学校用户"};
-        creatDropDownList(sheet,helper,strs,1,1,2,2);
         cell.setCellStyle(style);
 
         cell = row.createCell((short) 3);
         cell.setCellValue("是否启用");
         cell.setCellStyle(style);
 
-
         row = sheet.createRow(1);
-
         cell = row.createCell(0);
         cell.setCellStyle(commStyle);
         cell.setCellValue("123456");
@@ -519,11 +515,17 @@ public class ExcelUtil {
 
         cell = row.createCell(2);
         cell.setCellStyle(commStyle);
-        cell.setCellValue("2");
+        String[] strs = {"学生","辅导员","学院用户","学校用户"};
+        creatDropDownList(sheet,helper,strs,1,1,2,2);
+//        cell.setCellValue("2");
 
         cell = row.createCell(3);
         cell.setCellStyle(commStyle);
         cell.setCellValue("是");
+
+
+        hwb.write(response.getOutputStream());
+        hwb.close();
     }
     }
 

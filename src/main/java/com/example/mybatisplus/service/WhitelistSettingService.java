@@ -1,7 +1,9 @@
 package com.example.mybatisplus.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.mybatisplus.model.domain.WhitelistSetting;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.mybatisplus.model.dto.PageDTO;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
@@ -22,4 +24,6 @@ public interface WhitelistSettingService extends IService<WhitelistSetting> {
     void downloadTemplete(HttpServletResponse response);
 
     Map<String, Object> improtUser(MultipartFile file);
+
+    Page<WhitelistSetting> getWhiteList(PageDTO pageDTO, WhitelistSetting whitelistSetting);
 }

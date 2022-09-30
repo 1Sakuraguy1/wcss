@@ -1,6 +1,9 @@
 package com.example.mybatisplus.web.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.mybatisplus.common.utls.SessionUtils;
+import com.example.mybatisplus.model.domain.BatchSetting;
+import com.example.mybatisplus.model.dto.PageDTO;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import org.slf4j.Logger;
@@ -115,5 +118,18 @@ public class WhitelistSettingController {
         return JsonResponse.success(map);
 
     }
+
+    /**
+     *  查看白名单的列表
+     */
+    @RequestMapping("getWhiteList")
+    @ResponseBody
+    public JsonResponse getWhiteList(PageDTO pageDTO, WhitelistSetting whitelistSetting){
+        Page<WhitelistSetting> page = whitelistSettingService.getWhiteList(pageDTO,whitelistSetting);
+        return JsonResponse.success(page);
+
+    }
+
+
 }
 

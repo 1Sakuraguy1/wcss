@@ -1,14 +1,18 @@
 package com.example.mybatisplus.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.mybatisplus.common.utls.BaseConstant;
 import com.example.mybatisplus.common.utls.ExcelUtil;
+import com.example.mybatisplus.model.domain.BatchSetting;
 import com.example.mybatisplus.model.domain.Knrd;
 import com.example.mybatisplus.model.domain.WhitelistSetting;
 import com.example.mybatisplus.mapper.WhitelistSettingMapper;
+import com.example.mybatisplus.model.dto.PageDTO;
 import com.example.mybatisplus.service.KnrdService;
 import com.example.mybatisplus.service.WhitelistSettingService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -100,5 +104,26 @@ public class WhitelistSettingServiceImpl extends ServiceImpl<WhitelistSettingMap
             e.printStackTrace();
         }
         return map;
+    }
+
+    @Override
+    public Page<WhitelistSetting> getWhiteList(PageDTO pageDTO, WhitelistSetting whitelistSetting) {
+        Page<WhitelistSetting> page = new Page<>(pageDTO.getPageNo(), pageDTO.getPageSize());
+        QueryWrapper<WhitelistSetting> wrapper = new QueryWrapper<>();
+        wrapper.orderByDesc("gmt_created");
+        if (StringUtils.isNoneBlank(whitelistSetting.getName())){
+            wrapper.like("name",whitelistSetting.getName());
+        }
+        if (StringUtils.isNoneBlank(whitelistSetting.getSn())){
+            wrapper.like("sn",whitelistSetting.getSn());
+        }
+        if (StringUtils.isNoneBlank(whitelistSetting.getPassword())){
+            wrapper.eq("password",whitelistSetting.getPassword());
+        }
+        if (whitelistSetting.getRoleId() != null){
+            wrapper.eq("role_id",whitelistSetting.getRoleId());
+        }
+        page = baseMapper.selectPage(page, wrapper);
+        return page;
     }
 }
